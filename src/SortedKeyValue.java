@@ -1,5 +1,5 @@
 import java.security.KeyException;
-import java.security.PublicKey
+import java.security.PublicKey;
 
 /**
  * @author Silhouette76

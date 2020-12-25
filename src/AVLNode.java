@@ -1,3 +1,6 @@
+/**
+ * @author Silhouette76
+ */
 public class AVLNode<T extends Comparable> {
     public AVLNode<T> left;
     public AVLNode<T> right;
@@ -10,5 +13,4 @@ public class AVLNode<T extends Comparable> {
         this.data = data;
         this.height = 1;
     }
-
 }
