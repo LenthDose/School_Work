@@ -7,10 +7,9 @@ public class AVLNode<T extends Comparable> {
     public T data;
     public int height;
 
-    public AVLNode(AVLNode<T> left, AVLNode<T> right, T data) {
-        this.left = left;
-        this.right = right;
+    public AVLNode(T data) {
+        this.left = null;
+        this.right= null;
         this.data = data;
-        this.height = 1;
     }
 }

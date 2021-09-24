@@ -5,10 +5,8 @@ public class BST<T extends Comparable<T>> {
         private T data;
         private Node left,right;
 
-        public Node(T data,Node<T> left, Node<T> right){
+        public Node(T data){
             this.data = data;
-            this.left = left;
-            this.right = right;
         }
     }
 
@@ -18,7 +16,7 @@ public class BST<T extends Comparable<T>> {
 
     private Node<T> put(T data, Node<T> p){
         if(p == null){
-            return new Node<>(data,null,null);
+            return new Node<>(data);
         }
 
         int cmp = data.compareTo(p.data);
@@ -28,7 +26,9 @@ public class BST<T extends Comparable<T>> {
         if(cmp>0){
             p.right = put(data,p.right);
         }
-        else p.data = data;
+        else {
+            p.data = data;
+        }
         return p;
     }
 
@@ -47,11 +47,13 @@ public class BST<T extends Comparable<T>> {
         if(cmp>0){
             return put(data,p.right);
         }
-        else return p;
+        else {
+            return p;
+        }
     }
 
     public void inorder(BST<T> tree){
-        inorder(root);
+        inorder(tree.root);
     }
 
     private void inorder(Node<T> p){
@@ -64,13 +66,14 @@ public class BST<T extends Comparable<T>> {
 
 
     public static void main(String[] args) {
-        Integer[] arr = {6,18,12,36,81,54,66,99,57,76};
+        Integer[] arr = {50,16,74,60,43,16,90,46,31,29,88,71,64,13,65};
         BST<Integer> bst = new BST<>();
         for (int i = 0; i < arr.length; i++) {
             bst.put(arr[i]);
         }
         long startTime = System.nanoTime();
-        bst.search(9);
+        //bst.search(9);
+        bst.inorder(bst);
         long endTime = System.nanoTime();
         System.out.println("二叉排序树搜索运行时间："+(endTime-startTime)+"ns");
 //        bst.inorder(bst);
